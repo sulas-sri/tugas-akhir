@@ -1,9 +1,9 @@
-@extends('layouts.main', ['title' => 'Kas', 'page_heading' => 'Data Kas'])
+@extends('layouts.main', ['title' => 'Pembayaran', 'page_heading' => 'Data Pembayaran'])
 
 @section('content')
 <section class="row">
 	{{-- Start Statistics --}}
-	<div class="col-6 col-lg-6 col-md-6">
+	{{-- <div class="col-6 col-lg-6 col-md-6">
 		<div class="card">
 			<div class="card-body px-3 py-4-4">
 				<div class="row">
@@ -119,7 +119,7 @@
 			</div>
 			@endif
 		</div>
-	</div>
+	</div> --}}
 	{{-- End of Statistics --}}
 
 	@include('utilities.alert-flash-message')

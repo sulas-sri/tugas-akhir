@@ -52,6 +52,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(CashTransaction::class);
     }
 
+    public function billings(): HasMany
+    {
+        return $this->hasMany(Billing::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -71,4 +76,5 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
 }

@@ -41,6 +41,7 @@ return [
             'provider' => 'users',
         ],
 
+
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
@@ -70,6 +71,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        // 'headmasters' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\Headmaster::class,
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',

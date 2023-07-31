@@ -20,5 +20,9 @@ class DatabaseSeeder extends Seeder
             AdministratorSeeder::class,
             CashTransactionSeeder::class,
         ]);
+
+        // Role::create(['name' => 'admin']);
+        // Role::create(['name' => 'kepsek']);
+        // Role::create(['name' => 'siswa']);
     }
 }

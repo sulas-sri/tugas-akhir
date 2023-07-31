@@ -111,9 +111,14 @@
 									<tr>
 										<td class="col-5">
 											<div class="d-flex align-items-center">
-												<p class="font-bold ms-3 mb-0">
+												@if ($latestCashTransaction && $latestCashTransaction->students)
+												{{ $latestCashTransaction->students->name }}
+												@else
+												Nama Tidak Tersedia
+												@endif
+												{{-- <p class="font-bold ms-3 mb-0">
 													{{ $latestCashTransaction->students->name }}
-												</p>
+												</p> --}}
 											</div>
 										</td>
 										<td class="col-auto">

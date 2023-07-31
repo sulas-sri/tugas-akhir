@@ -1,5 +1,12 @@
 <div class=" btn-group" role="group">
-    <div class="mx-1">
+  <div class="mx-1">
+		<a href="{{ route('cetak-kwitansi', $model->id) }}" class="btn btn-info btn-sm">
+				<i class="bi bi-printer"></i>
+				Cetak Kwitansi
+		</a>
+	</div>
+
+	<div class="mx-1">
         <button type="button" data-id="{{ $model->id }}" class="btn btn-primary btn-sm cash-transaction-detail"
             data-bs-toggle="modal" data-bs-target="#showCashTransactionModal">
             <i class="bi bi-search"></i>

@@ -1,4 +1,4 @@
-@extends('layouts.main', ['title' => 'Pelajar', 'page_heading' => 'Data Pelajar'])
+@extends('layouts.main', ['title' => 'Siswa', 'page_heading' => 'Data Siswa'])
 
 @section('content')
 <section class="row">
@@ -64,10 +64,10 @@
 				<thead>
 					<tr>
 						<th scope=" col">#</th>
-						<th scope="col">NIS/NISN/NIM</th>
+						<th scope="col">NIS</th>
 						<th scope="col">Nama Lengkap</th>
 						<th scope="col">Kelas</th>
-						<th scope="col">Jurusan</th>
+						<th scope="col">Status</th>
 						<th scope="col">TA</th>
 						<th scope="col">Aksi</th>
 					</tr>

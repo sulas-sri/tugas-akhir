@@ -9,6 +9,8 @@ use App\Http\Controllers\API\v1\DashboardChartController;
 use App\Http\Controllers\API\v1\LoginController;
 use App\Http\Controllers\API\v1\LogoutController;
 use App\Http\Controllers\API\v1\StudentController;
+use App\Http\Controllers\API\v1\BillingController;
+use App\Models\Headmaster;
 
 Route::name('api.')->prefix('v1')->group(function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -30,6 +32,16 @@ Route::name('api.')->prefix('v1')->group(function () {
 
         Route::get('/cash-transaction/{id}', [CashTransactionController::class, 'show'])->name('cash-transaction.show');
         Route::get('/cash-transaction/{id}/edit', [CashTransactionController::class, 'edit'])->name('cash-transaction.edit');
+
+        Route::get('/billing/{id}', [BillingController::class, 'show'])->name('billings.show');
+        Route::get('/billing/{id}/edit', [BillingController::class, 'edit'])->name('billings.edit');
+        // Route::post('billings/{billing}/send-notification', [BillingController::class, 'sendNotification'])->name('billings.sendNotification');
+
+        Route::get('/transaction/{id}', [TransactionController::class, 'show'])->name('transaction.show');
+        Route::get('/transaction/{id}/edit', [TransactionController::class, 'edit'])->name('transaction.edit');
+
+        Route::get('/headmaster/{id}', [HeadmasterController::class, 'show'])->name('headmaster.show');
+        Route::get('/headmaster/{id}/edit', [HeadmasterController::class, 'edit'])->name('headmaster.edit');
 
         Route::get('/chart', DashboardChartController::class)->name('chart');
     });

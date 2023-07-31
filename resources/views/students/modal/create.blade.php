@@ -11,7 +11,7 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-12 col-lg-4">
 							<div class="mb-3">
-								<label for="name" class="form-label">NIS/NISN/NIM</label>
+								<label for="name" class="form-label">NIS</label>
 								<input type="number" class="form-control @error('student_identification_number') is-invalid @enderror"
 									name="student_identification_number" id="student_identification_number"
 									value="{{ old('student_identification_number') }}" placeholder="Masukkan nis/nisn..">
@@ -78,9 +78,11 @@
 
 						<div class="col-sm-6 col-md-6">
 							<div class="mb-3">
-								<label for="school_major_id" class="form-label">Jurusan</label>
+								<label for="school_major_id" class="form-label">Status</label>
 								<select class="form-select select2" name="school_major_id" id="school_major_id">
-									<option value="" selected>Pilih Jurusan</option>
+									<option value="" selected>Pilih Status</option>
+									{{-- <option value="active" {{ old('school_major_id') === "active" ? 'selected' : '' }}>Active</option>
+									<option value="inactive" {{ old('school_major_id') === "inactive" ? 'selected' : '' }}>Inactive</option> --}}
 									@foreach ($schoolMajors as $schoolMajor)
 									<option value="{{ $schoolMajor->id }}" {{ old('school_major_id')==="$schoolMajor->id" ? 'selected'
 										: '' }}>

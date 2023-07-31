@@ -48,6 +48,11 @@ class Student extends Model
         return $this->hasMany(CashTransaction::class);
     }
 
+    public function billings()
+    {
+        return $this->hasMany(Billing::class);
+    }
+
     /**
      * Get student gender name.
      *
