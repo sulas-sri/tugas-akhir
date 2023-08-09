@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
             AdministratorSeeder::class,
             CashTransactionSeeder::class,
+            RolesAndPermissionsSeeder::class,
         ]);
 
         // Role::create(['name' => 'admin']);

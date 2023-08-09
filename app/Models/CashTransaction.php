@@ -12,11 +12,24 @@ class CashTransaction extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['student_id', 'bill', 'amount', 'is_paid', 'date', 'note'];
+    protected $fillable = ['student_id', 'amount', 'category', 'is_paid', 'date'];
 
     protected $casts = [
         'is_paid' => 'integer',
+        // 'category' => 'string', // Ubah menjadi string
     ];
+
+    // Menggunakan mutator untuk mengubah array category menjadi JSON saat disimpan ke database
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['category'] = json_encode($value);
+    }
+
+    // Menggunakan accessor untuk mengubah JSON category menjadi array saat diambil dari database
+    public function getCategoryAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 
     /**
      * Get students relation data.
@@ -48,4 +61,6 @@ class CashTransaction extends Model
     {
         $this->attributes['date'] = date('Y-m-d', strtotime($value));
     }
+
+
 }

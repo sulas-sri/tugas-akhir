@@ -5,7 +5,7 @@
 	{{-- Start Statistics --}}
 	{{-- <div class="col-6 col-lg-6 col-md-6">
 		<div class="card">
-			<div class="card-body px-3 py-4-4">
+			<div class="px-3 card-body py-4-4">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="stats-icon">
@@ -13,8 +13,8 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h6 class="text-muted font-semibold">Total Bulan Ini</h6>
-						<h6 class="font-extrabold mb-0">
+						<h6 class="font-semibold text-muted">Total Bulan Ini</h6>
+						<h6 class="mb-0 font-extrabold">
 							{{ $data['totals']['thisMonth'] }}</h6>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 	</div>
 	<div class="col-6 col-lg-6 col-md-6">
 		<div class="card">
-			<div class="card-body px-3 py-4-4">
+			<div class="px-3 card-body py-4-4">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="stats-icon">
@@ -31,8 +31,8 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h6 class="text-muted font-semibold">Total Tahun Ini</h6>
-						<h6 class="font-extrabold mb-0">
+						<h6 class="font-semibold text-muted">Total Tahun Ini</h6>
+						<h6 class="mb-0 font-extrabold">
 							{{ $data['totals']['thisYear'] }}</h6>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 
 	<div class="col-6 col-lg-6 col-md-6">
 		<div class="card">
-			<div class="card-body px-3 py-4-4">
+			<div class="px-3 card-body py-4-4">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="stats-icon green">
@@ -50,8 +50,8 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h6 class="text-muted font-semibold">Sudah Membayar Minggu Ini</h6>
-						<h6 class="font-extrabold mb-0">
+						<h6 class="font-semibold text-muted">Sudah Membayar Minggu Ini</h6>
+						<h6 class="mb-0 font-extrabold">
 							{{ $data['studentCountWho']['paidThisWeek'] }}</h6>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 
 	<div class="col-6 col-lg-6 col-md-6">
 		<div class="card">
-			<div class="card-body px-3 py-4-4">
+			<div class="px-3 card-body py-4-4">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="stats-icon red">
@@ -69,8 +69,8 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h6 class="text-muted font-semibold">Belum Membayar Minggu Ini</h6>
-						<h6 class="font-extrabold mb-0">
+						<h6 class="font-semibold text-muted">Belum Membayar Minggu Ini</h6>
+						<h6 class="mb-0 font-extrabold">
 							{{ $data['studentCountWho']['notPaidThisWeek'] }}</h6>
 					</div>
 				</div>
@@ -85,21 +85,21 @@
 			</div>
 			@if($data['studentCountWho']['notPaidThisWeek'] > 0)
 			<div class="px-4">
-				<button type="button" class='btn btn-block btn-xl btn-light-danger font-bold mt-3'
+				<button type="button" class='mt-3 font-bold btn btn-block btn-xl btn-light-danger'
 					data-bs-toggle="modal" data-bs-target="#lookMoreModal">Ada
 					<b>{{ $data['studentCountWho']['notPaidThisWeek'] }}</b> orang belum membayar pada minggu
 					ini! <i class="bi bi-exclamation-triangle"></i></button>
 			</div>
 
-			<span class="badge w-100 rounded-pill bg-warning mb-3"></span>
-			<div class="card-content pb-4">
+			<span class="mb-3 badge w-100 rounded-pill bg-warning"></span>
+			<div class="pb-4 card-content">
 				<div class="row">
 					@foreach($data['students']['notPaidThisWeekLimit'] as $studentNotPaidThisWeek)
 					<div class="col-6 col-lg-6 col-md-6">
-						<div class="recent-message d-flex px-4 py-3">
+						<div class="px-4 py-3 recent-message d-flex">
 							<div class="name ms-4">
 								<h5 class="mb-1">{{ $studentNotPaidThisWeek->name }}</h5>
-								<h6 class="text-muted mb-0">
+								<h6 class="mb-0 text-muted">
 									{{ $studentNotPaidThisWeek->student_identification_number }}</h6>
 							</div>
 						</div>
@@ -107,14 +107,14 @@
 					@endforeach
 				</div>
 				<div class="px-4">
-					<button type="button" class='btn btn-block btn-xl btn-light-primary font-bold mt-3'
+					<button type="button" class='mt-3 font-bold btn btn-block btn-xl btn-light-primary'
 						data-bs-toggle="modal" data-bs-target="#lookMoreModal">Lihat
 						Selengkapnya</button>
 				</div>
 			</div>
 			@else
 			<div class="px-4">
-				<p class='btn btn-block btn-xl btn-light-success font-bold my-3'>Terima kasih! Semua sudah membayar <i
+				<p class='my-3 font-bold btn btn-block btn-xl btn-light-success'>Terima kasih! Semua sudah membayar <i
 						class="bi bi-emoji-laughing"></i></p>
 			</div>
 			@endif
@@ -123,9 +123,9 @@
 	{{-- End of Statistics --}}
 
 	@include('utilities.alert-flash-message')
-	<div class="col card px-3 py-3">
-		<div class="d-flex justify-content-end pb-3">
-			<div class="btn-group d-gap gap-2">
+	<div class="px-3 py-3 col card">
+		<div class="pb-3 d-flex justify-content-end">
+			<div class="gap-2 btn-group d-gap">
 				<a href="{{ route('cash-transactions.export') }}" class="btn btn-success">
 					<i class="bi bi-file-earmark-excel-fill"></i>
 					Export Excel
@@ -146,8 +146,8 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Nama Pelajar</th>
-						<th scope="col">Tagihan</th>
-						<th scope="col">Total Bayar</th>
+						<th scope="col">Jumlah Dibayar</th>
+						<th scope="col">Kategori Bayar</th>
 						<th scope="col">Tanggal</th>
 						<th scope="col">Aksi</th>
 					</tr>

@@ -25,8 +25,8 @@ class CashTransactionFactory extends Factory
         return [
             'user_id' => 1,
             'student_id' => mt_rand(1, 15),
-            'bill' => 10000,
             'amount' => 10000,
+            'category' => $this->faker->randomElement(['SPP', 'Tabungan', 'Catering', 'Antar Jemput','Angsuran', 'Komite', 'Buku Mapel','Ekstrakurikuler', 'Lain Lain']),
             'date' => Carbon::createFromDate(date('Y'), mt_rand(1, 12), mt_rand(1, 31)),
             'note' => mt_rand(0, 1) ? $this->faker->text(20) : ''
         ];

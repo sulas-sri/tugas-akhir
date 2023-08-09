@@ -18,10 +18,10 @@ class TransactionController extends Controller
     public function index()
     {
         // Menghitung jumlah pemasukan
-        $incomeAmount = Transaction::where('type', 'income')->sum('amount');
+        $incomeAmount = Transaction::where('type', 'pemasukan')->sum('amount');
 
         // Menghitung jumlah pengeluaran
-        $expenseAmount = Transaction::where('type', 'expense')->sum('amount');
+        $expenseAmount = Transaction::where('type', 'pengeluaran')->sum('amount');
 
         // Mengambil data transaksi untuk ditampilkan di tabel
         $transactions = Transaction::latest()->get();

@@ -25,8 +25,9 @@ class CashTransactionStoreRequest extends FormRequest
     {
         return [
             'student_id' => ['required'],
-            'bill' => ['required', 'integer', 'digits_between:3,191'],
             'amount' => ['required', 'integer', 'digits_between:3,191'],
+            'category' => 'required|array', // Memastikan category merupakan array
+            'category.*' => 'string', // Memastikan setiap elemen dalam array adalah string
             'date' => ['required', 'date'],
             'note' => ['max:191']
         ];
@@ -42,9 +43,9 @@ class CashTransactionStoreRequest extends FormRequest
         return [
             'student_id.required' => 'Kolom nama pelajar wajib diisi!',
 
-            'bill.required' => 'Kolom tagihan wajib diisi!',
-            'bill.integer' => 'Kolom tagihan harus angka!',
-            'bill.digits_betweeen' => 'Kolom tagihan harus diantara 3 sampai dengan 191 karakter!',
+            'category.required' => 'Kategori pembayaran wajib diisi!',
+
+            // 'bill.required' => 'Kolom tagihan wajib diisi!',
 
             'amount.required' => 'Kolom total bayar wajib diisi!',
             'amount.integer' => 'Kolom total bayar harus angka!',

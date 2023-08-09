@@ -9,8 +9,8 @@
 			columns: [
 				{ data: 'DT_RowIndex', name: 'DT_RowIndex' },
 				{ data: 'students.name', name: 'students.name' },
-				{ data: 'bill', name: 'bill' },
 				{ data: 'amount', name: 'amount' },
+				{ data: 'category', name: 'category' },
 				{ data: 'date', name: 'date' },
 				{ data: 'action', name: 'action' },
 			]
@@ -36,8 +36,8 @@
 
 					$('#showCashTransactionModal #user_id').val(response.data.users.name);
 					$('#showCashTransactionModal #student_id').val(response.data.students.name);
-					$('#showCashTransactionModal #bill').val(response.data.bill);
 					$('#showCashTransactionModal #amount').val(response.data.amount);
+					$('#showCashTransactionModal #category').val(response.data.category);
 					$('#showCashTransactionModal #is_paid').val(response.data.is_paid);
 					$('#showCashTransactionModal #date').val(response.data.date);
 					$('#showCashTransactionModal #note').val(response.data.note);
@@ -75,8 +75,8 @@
 
 					$('#editCashTransactionModal #student_name').val(response.data.students.name);
 					$('#editCashTransactionModal #student_id').val(response.data.student_id);
-					$('#editCashTransactionModal #bill').val(response.data.bill);
 					$('#editCashTransactionModal #amount').val(response.data.amount);
+					$('#editCashTransactionModal #category').val(response.data.category);
 					$('#editCashTransactionModal #is_paid').val(response.data.is_paid);
 					$('#editCashTransactionModal #date').val(response.data.date);
 					$('#editCashTransactionModal #note').val(response.data.note);

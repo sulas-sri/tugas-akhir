@@ -33,7 +33,7 @@ class CashTransactionController extends Controller
     public function index(): View|JsonResponse
     {
         $cashTransactions = CashTransaction::with('students:id,name')
-            ->select('id', 'student_id', 'bill', 'amount', 'date')
+            ->select('id', 'student_id', 'amount', 'category','date')
             ->whereBetween('date', [$this->startOfWeek, $this->endOfWeek])
             ->latest()
             ->get();
@@ -48,8 +48,8 @@ class CashTransactionController extends Controller
         if (request()->ajax()) {
             return datatables()->of($cashTransactions)
                 ->addIndexColumn()
-                ->addColumn('bill', fn ($model) => indonesianCurrency($model->bill))
                 ->addColumn('amount', fn ($model) => indonesianCurrency($model->amount))
+                ->addColumn('category', fn ($model) => $model->category)
                 ->addColumn('date', fn ($model) => date('d-m-Y', strtotime($model->date)))
                 ->addColumn('action', 'cash_transactions.datatable.action')
                 ->rawColumns(['action'])
@@ -76,10 +76,9 @@ class CashTransactionController extends Controller
         foreach ($request->student_id as $student_id) {
             Auth::user()->cash_transactions()->create([
                 'student_id' => $student_id,
-                'bill' => $request->bill,
                 'amount' => $request->amount,
+                'category' => $request->category,
                 'date' => $request->date,
-                'note' => $request->note
             ]);
         }
 

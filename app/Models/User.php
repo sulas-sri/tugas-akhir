@@ -9,29 +9,29 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+
+use Spatie\Permission\Interfaces\HasPermission;
+
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = [ 'name', 'email', 'password', 'role'];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'remember_token',
-    ];
+    protected $hidden = ['remember_token'];
 
     /**
      * The attributes that should be cast to native types.
@@ -47,9 +47,9 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return HasMany
      */
-    public function cash_transactions(): HasMany
+    public function cash_transactions()
     {
-        return $this->hasMany(CashTransaction::class);
+        return $this->hasMany(CashTransaction::class, 'user_id');
     }
 
     public function billings(): HasMany
@@ -76,5 +76,4 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-
 }

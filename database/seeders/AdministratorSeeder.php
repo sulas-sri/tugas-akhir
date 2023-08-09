@@ -17,6 +17,7 @@ class AdministratorSeeder extends Seeder
     {
         // Administrator
         User::create([
+            'id_transaksi' => 1,
             'name' => 'Administrator',
             'email' => 'admin@mail.com',
             'email_verified_at' => now(),

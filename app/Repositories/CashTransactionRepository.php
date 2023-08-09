@@ -30,14 +30,14 @@ class CashTransactionRepository extends Controller implements CashTransactionInt
      * @param int $limit limit data yang ingin ditampilkan.
      * @return Object
      */
-    public function cashTransactionLatest(array $columns, ?int $limit): Object
-    {
-        $model = $this->model->with('students', 'users')->select($columns);
+    // public function cashTransactionLatest(array $columns, ?int $limit): Object
+    // {
+    //     $model = $this->model->with('students', 'users')->select($columns);
 
-        return is_null($limit)
-            ? $model->latest()->get()
-            : $model->take($limit)->latest()->get();
-    }
+    //     return is_null($limit)
+    //         ? $model->latest()->get()
+    //         : $model->take($limit)->latest()->get();
+    // }
 
     /**
      * Hitung total kolom amount di tabel cash_transactions berdasarkan tahun atau bulan.

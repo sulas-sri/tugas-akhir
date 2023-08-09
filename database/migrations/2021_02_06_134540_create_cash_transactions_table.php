@@ -15,10 +15,11 @@ class CreateCashTransactionsTable extends Migration
     {
         Schema::create('cash_transactions', function (Blueprint $table) {
             $table->id();
+            $table->id_transaksi();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('student_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();;
-            $table->bigInteger('bill');
             $table->bigInteger('amount');
+            $table->string('category');
             $table->date('date');
             $table->text('note')->nullable();
             $table->timestamps();

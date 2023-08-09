@@ -3,7 +3,7 @@
 	<div class="modal-dialog modal-dialog-scrollable">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Tambah Data Kas</h5>
+				<h5 class="modal-title">Tambah Data Pembayaran</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
@@ -32,7 +32,7 @@
 						</div>
 					</div>
 
-					<div class="row">
+					{{-- <div class="row">
 						<div class="col-md-6">
 							<div class="mb-3">
 								<label for="bill" class="form-label">Tagihan</label>
@@ -45,8 +45,10 @@
 								</div>
 								@enderror
 							</div>
-						</div>
+						</div> --}}
 
+
+					<div class="row">
 						<div class="col-md-6">
 							<div class="mb-3">
 								<label for="amount" class="form-label">Total Bayar</label>
@@ -62,10 +64,80 @@
 						</div>
 					</div>
 
+					<div class="col-md-6">
+						<div class="mb-3">
+								<label for="category" class="form-label">Kategori Tagihan</label>
+								<div>
+									<input type="checkbox" name="category[]" value="SPP" id="category_spp"
+											{{ in_array('SPP', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_spp">SPP</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Tabungan" id="category_tabungan"
+											{{ in_array('Tabungan', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_tabungan">Tabungan</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Catering" id="category_catering"
+											{{ in_array('Catering', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_catering">Catering</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Antar Jemput" id="category_antarJemput"
+											{{ in_array('Antar Jemput', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_antarJemput">Antar Jemput</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Angsuran" id="category_angsuran"
+											{{ in_array('Angsuran', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_angsuran">Angsuran TA</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Komite" id="category_komite"
+											{{ in_array('Komite', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_komite">Komite</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Buku Mapel" id="category_bukuMapel"
+											{{ in_array('Buku Mapel', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_bukuMapel">Buku Mapel</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Ekstrakurikuler" id="category_ekstrakurikuler"
+											{{ in_array('Ekstrakurikuler', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_ekstrakurikuler">Ekstrakurikuler</label>
+								</div>
+								<div>
+									<input type="checkbox" name="category[]" value="Lain Lain" id="category_lainLain"
+											{{ in_array('Lain Lain', old('category', [])) ? 'checked' : '' }}>
+									<label for="category_lainLain">Lain Lain</label>
+									<input type="text" name="lain_lain_value" value="{{ old('lain_lain_value') }}" placeholder="Input Lain Lain"
+									{{ in_array('Lain Lain', old('category', [])) ? '' : 'disabled' }}>
+								</div>
+								{{-- <select class="form-select @error('kategori_tagihan') is-invalid @enderror" name="kategori_tagihan">
+										<option value="" selected disabled>Pilih Kategori Tagihan</option>
+										<option value="SPP" {{ old('kategori_tagihan') == 'SPP' ? 'selected' : '' }}>SPP</option>
+										<option value="Tabungan" {{ old('kategori_tagihan') == 'Tabungan' ? 'selected' : '' }}>Tabungan</option>
+										<option value="Catering" {{ old('kategori_tagihan') == 'Catering' ? 'selected' : '' }}>Catering</option>
+										<option value="Antar Jemput" {{ old('kategori_tagihan') == 'Antar Jemput' ? 'selected' : '' }}>Antar Jemput</option>
+										<option value="Angsuran TA" {{ old('kategori_tagihan') == 'Angsuran TA' ? 'selected' : '' }}>Angsuran TA</option>
+										<option value="Komite" {{ old('kategori_tagihan') == 'Komite' ? 'selected' : '' }}>Komite</option>
+										<option value="Buku Mapel" {{ old('kategori_tagihan') == 'Buku Mapel' ? 'selected' : '' }}>Buku Mapel</option>
+										<option value="Ekstrakurikuler" {{ old('kategori_tagihan') == 'Ekstrakurikuler' ? 'selected' : '' }}>Ekstrakurikuler</option>
+										<option value="Lain lain" {{ old('kategori_tagihan') == 'Lain lain' ? 'selected' : '' }}>Lain lain</option>
+								</select> --}}
+								@error('category')
+										<div class="d-block invalid-feedback">
+												{{ $message }}
+										</div>
+								@enderror
+						</div>
+				</div>
+
 					<div class="row">
 						<div class="col-md-12">
 							<div class="mb-3">
-								<label for="date" class="form-label">Tanggal</label>
+								<label for="date" class="form-label">Tanggal Bayar</label>
 								<input type="date" class="form-control @error('date') is-invalid @enderror" name="date" id="date"
 									placeholder="Pilih tanggal..">
 
